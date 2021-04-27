@@ -305,7 +305,7 @@ fn main() {
                     };
                 }
 
-                write_plot(&benchmark_nums, "aoaVec", num_runs);
+                write_plot(&benchmark_nums, "concurrentVec", num_runs);
                 //write_plot(&benchmark_nums_vec, "MutexVec", num_runs);
                 //write_plot(&benchmark_nums_dash_map, "dashSet", num_runs);
                 //write_plot(&benchmark_nums_atomic_usize, "atomic", num_runs);

@@ -136,7 +136,7 @@
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(148,   0, 211)'  d='M515.48,36.01 L558.04,36.01 M97.70,218.27 L193.12,154.86 L288.55,129.03 L383.97,129.06 L479.40,111.98 L574.82,152.84
+	<path stroke='rgb(148,   0, 211)'  d='M515.48,36.01 L558.04,36.01 M97.70,364.96 L193.12,404.33 L288.55,409.44 L383.97,411.57 L479.40,411.43 L574.82,410.50
 		 '/></g>
 	</g>
 	<g id="gnuplot_plot_2" ><title>atomic</title>
@@ -149,37 +149,47 @@
 	<path stroke='rgb(  0, 158, 115)'  d='M515.48,54.01 L558.04,54.01 M97.70,229.58 L193.12,346.83 L288.55,356.04 L383.97,360.16 L479.40,362.97 L574.82,359.64
 		 '/></g>
 	</g>
-	<g id="gnuplot_plot_3" ><title>dashSet</title>
+	<g id="gnuplot_plot_3" ><title>concurrentVec</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(507.09,75.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >concurrentVec</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb( 86, 180, 233)'  d='M515.48,72.01 L558.04,72.01 M97.70,218.27 L193.12,154.86 L288.55,129.03 L383.97,129.06 L479.40,111.98 L574.82,152.84
+		 '/></g>
+	</g>
+	<g id="gnuplot_plot_4" ><title>dashSet</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(507.09,93.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >dashSet</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb( 86, 180, 233)'  d='M515.48,72.01 L558.04,72.01 M97.70,415.13 L193.12,412.46 L288.55,411.51 L383.97,411.66 L479.40,413.07 L574.82,413.39
+	<path stroke='rgb(230, 159,   0)'  d='M515.48,90.01 L558.04,90.01 M97.70,415.13 L193.12,412.46 L288.55,411.51 L383.97,411.66 L479.40,413.07 L574.82,413.39
 		 '/></g>
 	</g>
-	<g id="gnuplot_plot_4" ><title>MutexVec</title>
+	<g id="gnuplot_plot_5" ><title>MutexVec</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(507.09,93.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+	<g transform="translate(507.09,111.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >MutexVec</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(230, 159,   0)'  d='M515.48,90.01 L558.04,90.01 M97.70,360.09 L193.12,404.31 L288.55,404.49 L383.97,407.89 L479.40,410.70 L574.82,412.10
+	<path stroke='rgb(240, 228,  66)'  d='M515.48,108.01 L558.04,108.01 M97.70,360.09 L193.12,404.31 L288.55,404.49 L383.97,407.89 L479.40,410.70 L574.82,412.10
 		 '/></g>
 	</g>
-	<g id="gnuplot_plot_5" ><title>usizeMem</title>
+	<g id="gnuplot_plot_6" ><title>usizeMem</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(507.09,111.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+	<g transform="translate(507.09,129.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >usizeMem</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(240, 228,  66)'  d='M515.48,108.01 L558.04,108.01 M97.70,23.46 L193.12,152.12 L288.55,199.47 L383.97,231.34 L479.40,240.30 L574.82,243.24
+	<path stroke='rgb(  0, 114, 178)'  d='M515.48,126.01 L558.04,126.01 M97.70,23.46 L193.12,152.12 L288.55,199.47 L383.97,231.34 L479.40,240.30 L574.82,243.24
 		 '/></g>
 	</g>
-<g fill="none" color="white" stroke="rgb(240, 228,  66)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+<g fill="none" color="white" stroke="rgb(  0, 114, 178)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
