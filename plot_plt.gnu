@@ -1,14 +1,15 @@
 set terminal svg;
 set terminal svg;
-set output 'plot.svg';
+set output 'plot_plt.svg';
 set border 3 back;
 set tics nomirror out scale 0.75
 set zeroaxis lt -1;
 set xtics axis;
 set ytics axis;
 set ylabel "inserts/s";
-set xlabel "cores";
-plot for [fn in system("ls -1v plots")] "plots/".fn with lines title ''.fn
+set xlabel "size";
+set logscale x 2
+plot for [fn in system("ls -1v plots_plt")] "plots_plt/".fn with lines title ''.fn
 # plot 'plot' i 0 u 1:2 w lines title 'aoaVec',\
 #  '' u 1:3 w lines title 'MutexVec',\
 #  '' u 1:4 w lines title 'DashSet',\
