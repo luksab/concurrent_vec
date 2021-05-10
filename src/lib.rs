@@ -1,4 +1,3 @@
-#![feature(core_panic)]
 //! Append-only concurrent vector-like datastructure
 
 //! ```
