@@ -43,10 +43,19 @@ use std::{
 };
 
 /// A concurrent vector, only supporting push and indexed access
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct ConcVec<T> {
     data: Arc<Mutex<Option<Vec<Vec<T>>>>>,
     buf_size: usize,
+}
+
+impl<T> Clone for ConcVec<T> {
+    fn clone(&self) -> Self {
+        ConcVec{
+            data: self.data.clone(),
+            buf_size: self.buf_size,
+        }
+    }
 }
 
 /// This is the representation used to push data to the vec.
