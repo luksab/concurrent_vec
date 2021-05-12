@@ -29,7 +29,7 @@
 //! let len = conc_vec.len();
 //! assert_eq!(len, N);
 //! # let mut set = HashSet::new();
-//! for i in conc_vec.lock_iter() {
+//! for i in conc_vec.take_iter() {
 //!     println!("{}", i);
 //! #     set.insert(i);
 //! }
@@ -51,7 +51,7 @@ pub struct ConcVec<T> {
 
 impl<T> Clone for ConcVec<T> {
     fn clone(&self) -> Self {
-        ConcVec{
+        ConcVec {
             data: self.data.clone(),
             buf_size: self.buf_size,
         }
@@ -150,7 +150,7 @@ impl<T> ConcVec<T> {
 
     /// Use this function to retrieve data from the vec.
     /// Takes All data out of the Vec
-    pub fn lock_iter(&self) -> VecIter<T> {
+    pub fn take_iter(&self) -> VecIter<T> {
         let data = self.data.lock().unwrap().replace(Vec::new()).unwrap();
         VecIter::<T> {
             data,
@@ -198,7 +198,7 @@ mod tests {
         }
 
         let mut set = HashSet::new();
-        for i in conc_vec.lock_iter() {
+        for i in conc_vec.take_iter() {
             println!("{}", i);
             set.insert(i);
         }
@@ -215,7 +215,7 @@ mod tests {
         }
 
         let mut set = HashSet::new();
-        for i in conc_vec.lock_iter() {
+        for i in conc_vec.take_iter() {
             println!("{}", i);
             set.insert(i);
         }
@@ -246,9 +246,51 @@ mod tests {
         }
 
         let mut set = HashSet::new();
-        for i in conc_vec.lock_iter() {
+        let len = conc_vec.len();
+        for i in conc_vec.take_iter() {
             println!("{}", i);
             set.insert(i);
         }
+        assert_eq!(set.len(), len);
+    }
+
+    struct LageStruct {
+        data: [usize; 128],
+        counter: usize,
+    }
+    #[test]
+    fn multithreading_struct() {
+        let conc_vec = ConcVec::new(1, 32);
+        let n = 100_000;
+
+        let n_threads = 16;
+
+        let mut handles = vec![];
+
+        for t in 0..n_threads {
+            let mut conc_vec = conc_vec.clone().get_appender();
+            handles.push(thread::spawn(move || {
+                for i in 0..n {
+                    if i % n_threads == t {
+                        conc_vec.push(LageStruct {
+                            data: [i; 128],
+                            counter: i,
+                        });
+                    }
+                }
+            }))
+        }
+
+        for h in handles {
+            h.join().unwrap();
+        }
+
+        let mut set = HashSet::new();
+        let len = conc_vec.len();
+        for i in conc_vec.take_iter() {
+            println!("{}, {}", i.counter, i.data[5]);
+            set.insert(i.counter);
+        }
+        assert_eq!(set.len(), len);
     }
 }

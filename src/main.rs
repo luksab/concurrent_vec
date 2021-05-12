@@ -13,7 +13,7 @@ fn base_one() {
 
     let mut set = HashSet::new();
 
-    for i in base.lock_iter() {
+    for i in base.take_iter() {
         set.insert(i);
     }
 
@@ -31,7 +31,7 @@ fn base_thirtytwo() {
 
     let mut set = HashSet::new();
 
-    for i in base.lock_iter() {
+    for i in base.take_iter() {
         set.insert(i);
     }
 
@@ -81,7 +81,7 @@ fn multithreading(n_threads: usize) {
 
     let mut set = HashSet::new();
 
-    for i in conc_vec.lock_iter() {
+    for i in conc_vec.take_iter() {
         set.insert(i);
     }
 
