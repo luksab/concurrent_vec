@@ -38,7 +38,7 @@
 //! ```
 
 use std::{
-    cell::Cell,
+    mem,
     sync::{Arc, Mutex},
 };
 
@@ -61,27 +61,27 @@ impl<T> Clone for ConcVec<T> {
 /// This is the representation used to push data to the vec.
 /// Get this by calling `conc_vec.clone().get_appender();`
 pub struct BufferVec<T> {
-    data: Cell<Vec<T>>,
+    data: Vec<T>,
     vec: ConcVec<T>,
     buf_size: usize,
 }
 
 impl<T> Drop for BufferVec<T> {
     fn drop(&mut self) {
-        let new_vec: Cell<Vec<T>> = Cell::new(Vec::new());
-        self.data.swap(&new_vec);
-        self.vec.push(new_vec.into_inner());
+        let mut new_vec: Vec<T> = Vec::new();
+        mem::swap(&mut self.data, &mut new_vec);
+        self.vec.push(new_vec);
     }
 }
 
 impl<T> BufferVec<T> {
     pub fn push(&mut self, t: T) {
-        self.data.get_mut().push(t);
-        if self.data.get_mut().len() == self.buf_size {
+        self.data.push(t);
+        if self.data.len() == self.buf_size {
             //let new_vec: Cell<Vec<T>> = Cell::new(Vec::with_capacity(self.buf_size));
-            let new_vec: Cell<Vec<T>> = Cell::new(Vec::new());
-            self.data.swap(&new_vec); // change to mem::swap
-            self.vec.push(new_vec.into_inner());
+            let mut new_vec: Vec<T> = Vec::new();
+            mem::swap(&mut self.data, &mut new_vec);
+            self.vec.push(new_vec);
         }
     }
 }
