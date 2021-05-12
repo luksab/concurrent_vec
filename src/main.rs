@@ -46,6 +46,44 @@ fn base_thirtytwo() {
     // }
 }
 
+struct LageStruct {
+    data: [usize; 128],
+    counter: usize,
+}
+fn multithreading_struct() {
+    let conc_vec = ConcVec::new(1, 32);
+    let n = 10_000_000;
+
+    let n_threads = 16;
+
+    let mut handles = vec![];
+
+    for t in 0..n_threads {
+        let mut conc_vec = conc_vec.clone().get_appender();
+        handles.push(thread::spawn(move || {
+            for i in 0..n {
+                if i % n_threads == t {
+                    conc_vec.push(LageStruct {
+                        data: [i; 128],
+                        counter: i,
+                    });
+                }
+            }
+        }))
+    }
+
+    for h in handles {
+        h.join().unwrap();
+    }
+
+    let mut set = HashSet::new();
+    let len = conc_vec.len();
+    for i in conc_vec.take_iter() {
+        set.insert(i.counter);
+    }
+    assert_eq!(set.len(), len);
+}
+
 use std::time::Instant;
 use std::{collections::HashSet, thread, time::Duration, usize};
 
@@ -53,8 +91,9 @@ const N: usize = 10_000_000;
 
 #[test]
 fn test_mth() {
-    multithreading(12);
+    multithreading_size(12, 1024, 10_000);
 }
+
 fn multithreading(n_threads: usize) {
     let conc_vec = ConcVec::new(1, 1024);
     //let vec = Arc::new(Aoavec::with_capacity(N));
@@ -296,6 +335,7 @@ fn main() {
                 }
             }
             "Benchmark_size" => buf_size(),
+            "Large_struct" => multithreading_struct(),
             _ => println!("This is not the answer."),
         }
     }
