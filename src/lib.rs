@@ -97,7 +97,7 @@ impl<T> ConcVec<T> {
 
     /// Returns the length of self.
     /// # Performance
-    /// ## O(n)
+    /// `O(n)`
     /// This has to iterate over all vecs, so at minimum
     /// `self.len_estimate` / BUF_SIZE times
     pub fn len(&self) -> usize {
@@ -111,7 +111,7 @@ impl<T> ConcVec<T> {
 
     /// Returns an upper bound of the length of self.
     /// # Performance
-    /// ## O(1)
+    /// `O(1)`
     /// this only needs to take the Mutex
     pub fn len_estimate(&self) -> usize {
         self.data.lock().unwrap().as_ref().unwrap().len() * self.buf_size
@@ -119,7 +119,7 @@ impl<T> ConcVec<T> {
 
     /// Returns if self is empty.
     /// # Performance
-    /// ## O(1)
+    /// `O(1)`
     /// this only needs to take the Mutex
     pub fn is_empty(&self) -> bool {
         self.data.lock().unwrap().as_ref().unwrap().is_empty()
