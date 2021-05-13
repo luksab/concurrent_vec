@@ -148,64 +148,102 @@
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
-	<g id="gnuplot_plot_1a" ><title>concurrentVec_struct 1 threads</title>
+	<g id="gnuplot_plot_1a" ><title>concurrentVec 1 cores</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(458.83,242.10)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
-		<text><tspan font-family="Arial" >concurrentVec_struct 1 threads</tspan></text>
+	<g transform="translate(458.83,312.18)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >concurrentVec 1 cores</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb( 59,  76, 192)'  d='M467.22,238.20 L509.78,238.20 M89.31,256.69 L123.35,231.25 L157.38,207.15 L191.42,184.13 L225.46,165.94 L259.49,156.60
-		L293.53,155.27 L327.57,156.99 L361.60,154.70 L395.64,153.32 L429.67,152.57 L463.71,152.05 L497.75,151.14 L531.78,151.51
-		L565.82,151.39  '/></g>
+	<path stroke='rgb(104, 138, 239)'  d='M467.22,308.28 L509.78,308.28 M89.31,307.10 L123.35,270.96 L157.38,246.32 L191.42,254.09 L225.46,237.64 L259.49,223.84
+		L293.53,207.97 L327.57,191.67 L361.60,181.21 L395.64,175.21 L429.67,166.24 L463.71,160.74 L497.75,163.17 L531.78,160.96
+		L565.82,156.94  '/></g>
 	</g>
 	<g id="gnuplot_plot_2a" ><title>gnuplot_plot_2a</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g stroke='none' shape-rendering='crispEdges'>
-		<polygon fill = 'rgb( 59,  76, 192)' fill-opacity = '0.500000' points = '89.31,257.84 123.35,232.20 157.38,208.84 191.42,186.46 225.46,169.01 259.49,158.40 293.53,158.19 327.57,158.42 361.60,156.04 395.64,154.30 429.67,153.34 463.71,153.18 497.75,151.80 531.78,152.59 565.82,152.34 565.82,150.47
-531.78,150.45 497.75,150.50 463.71,150.96 429.67,151.81 395.64,152.37 361.60,153.41 327.57,155.61 293.53,152.56 259.49,154.89 225.46,163.10 191.42,181.94 157.38,205.53 123.35,230.31 89.31,255.57 '/>
+		<polygon fill = 'rgb(104, 138, 239)' fill-opacity = '0.500000' points = '89.31,308.46 123.35,272.03 157.38,247.70 191.42,255.64 225.46,239.63 259.49,226.99 293.53,212.29 327.57,196.13 361.60,187.22 395.64,183.29 429.67,170.74 463.71,163.45 497.75,172.38 531.78,171.04 565.82,164.01 565.82,150.99
+531.78,153.00 497.75,155.76 463.71,158.21 429.67,162.23 395.64,168.55 361.60,176.02 327.57,187.67 293.53,204.08 259.49,220.93 225.46,235.75 191.42,252.61 157.38,245.00 123.35,269.92 89.31,305.79 '/>
 	</g>
 </g>
 	</g>
-	<g id="gnuplot_plot_3a" ><title>concurrentVec_struct 2 threads</title>
+	<g id="gnuplot_plot_3a" ><title>concurrentVec 2 cores</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(458.83,260.10)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
-		<text><tspan font-family="Arial" >concurrentVec_struct 2 threads</tspan></text>
+	<g transform="translate(458.83,330.18)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >concurrentVec 2 cores</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(180,   4,  38)'  d='M467.22,256.20 L509.78,256.20 M89.31,302.09 L123.35,278.07 L157.38,251.91 L191.42,225.19 L225.46,203.90 L259.49,189.49
-		L293.53,175.93 L327.57,153.49 L361.60,141.34 L395.64,134.11 L429.67,131.32 L463.71,129.11 L497.75,128.84 L531.78,127.90
-		L565.82,127.75  '/></g>
+	<path stroke='rgb(153, 186, 255)'  d='M467.22,326.28 L509.78,326.28 M89.31,330.70 L123.35,301.25 L157.38,274.82 L191.42,239.97 L225.46,233.06 L259.49,218.60
+		L293.53,197.03 L327.57,176.49 L361.60,161.16 L395.64,150.20 L429.67,142.44 L463.71,137.20 L497.75,133.91 L531.78,131.65
+		L565.82,129.97  '/></g>
 	</g>
 	<g id="gnuplot_plot_4a" ><title>gnuplot_plot_4a</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g stroke='none' shape-rendering='crispEdges'>
-		<polygon fill = 'rgb(180,   4,  38)' fill-opacity = '0.500000' points = '89.31,307.36 123.35,282.26 157.38,255.20 191.42,231.63 225.46,207.87 259.49,193.88 293.53,177.98 327.57,157.00 361.60,143.69 395.64,135.50 429.67,134.15 463.71,130.60 497.75,130.45 531.78,129.25 565.82,131.11 565.82,124.65
-531.78,126.60 497.75,127.30 463.71,127.68 429.67,128.69 395.64,132.77 361.60,139.12 327.57,150.27 293.53,173.99 259.49,185.56 225.46,200.30 191.42,219.67 157.38,248.88 123.35,274.30 89.31,297.46 '/>
+		<polygon fill = 'rgb(153, 186, 255)' fill-opacity = '0.500000' points = '89.31,333.10 123.35,302.60 157.38,276.64 191.42,243.28 225.46,235.60 259.49,219.90 293.53,199.25 327.57,178.03 361.60,162.07 395.64,153.06 429.67,143.17 463.71,138.03 497.75,134.71 531.78,132.35 565.82,131.02 565.82,128.95
+531.78,130.97 497.75,133.12 463.71,136.40 429.67,141.73 395.64,147.54 361.60,160.26 327.57,175.01 293.53,194.94 259.49,217.34 225.46,230.69 191.42,236.92 157.38,273.08 123.35,299.94 89.31,328.43 '/>
 	</g>
 </g>
 	</g>
-	<g id="gnuplot_plot_5a" ><title>concurrentVec_struct 6 threads</title>
+	<g id="gnuplot_plot_5a" ><title>concurrentVec 6 cores</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(458.83,278.10)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
-		<text><tspan font-family="Arial" >concurrentVec_struct 6 threads</tspan></text>
+	<g transform="translate(458.83,348.18)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >concurrentVec 6 cores</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(237, 209, 194)'  d='M467.22,274.20 L509.78,274.20 M89.31,316.47 L123.35,290.83 L157.38,264.32 L191.42,240.23 L225.46,217.69 L259.49,199.28
-		L293.53,178.67 L327.57,158.09 L361.60,133.79 L395.64,113.84 L429.67,103.19 L463.71,98.28 L497.75,97.02 L531.78,95.85
-		L565.82,95.30  '/></g>
+	<path stroke='rgb(227, 106,  83)'  d='M467.22,344.28 L509.78,344.28 M89.31,335.31 L123.35,303.19 L157.38,278.00 L191.42,257.10 L225.46,242.68 L259.49,217.02
+		L293.53,190.77 L327.57,166.16 L361.60,143.80 L395.64,129.70 L429.67,114.38 L463.71,107.27 L497.75,104.33 L531.78,100.92
+		L565.82,100.36  '/></g>
 	</g>
 	<g id="gnuplot_plot_6a" ><title>gnuplot_plot_6a</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g stroke='none' shape-rendering='crispEdges'>
-		<polygon fill = 'rgb(237, 209, 194)' fill-opacity = '0.500000' points = '89.31,317.30 123.35,292.12 157.38,265.55 191.42,241.27 225.46,219.31 259.49,201.90 293.53,179.79 327.57,165.13 361.60,137.17 395.64,118.28 429.67,108.73 463.71,101.85 497.75,100.53 531.78,98.79 565.82,97.02 565.82,93.66
-531.78,93.11 497.75,93.80 463.71,95.01 429.67,98.36 395.64,109.86 361.60,130.69 327.57,152.15 293.53,177.58 259.49,196.83 225.46,216.14 191.42,239.21 157.38,263.13 123.35,289.59 89.31,315.67 '/>
+		<polygon fill = 'rgb(227, 106,  83)' fill-opacity = '0.500000' points = '89.31,335.79 123.35,303.76 157.38,278.74 191.42,258.25 225.46,244.11 259.49,218.72 293.53,193.65 327.57,169.10 361.60,146.60 395.64,139.98 429.67,122.41 463.71,115.35 497.75,112.11 531.78,106.67 565.82,107.99 565.82,94.01
+531.78,95.93 497.75,97.87 463.71,100.61 429.67,107.75 395.64,121.61 361.60,141.20 327.57,163.43 293.53,188.10 259.49,215.39 225.46,241.29 191.42,255.98 157.38,277.27 123.35,302.62 89.31,334.83 '/>
 	</g>
 </g>
 	</g>
-<g fill="none" color="white" stroke="rgb(237, 209, 194)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g id="gnuplot_plot_7a" ><title>std::Vec 1 cores</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(458.83,366.18)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >std::Vec 1 cores</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb(201, 216, 239)'  d='M467.22,362.28 L509.78,362.28 M89.31,152.00 L123.35,151.57 L157.38,151.53 L191.42,151.94 L225.46,151.58 L259.49,152.06
+		L293.53,152.07 L327.57,151.30 L361.60,151.26 L395.64,150.91 L429.67,150.85 L463.71,151.58 L497.75,151.59 L531.78,151.02
+		L565.82,151.29  '/></g>
+	</g>
+	<g id="gnuplot_plot_8a" ><title>gnuplot_plot_8a</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(201, 216, 239)' fill-opacity = '0.500000' points = '89.31,157.65 123.35,156.47 157.38,156.43 191.42,157.63 225.46,156.47 259.49,157.71 293.53,157.78 327.57,155.25 361.60,155.26 395.64,153.72 429.67,153.69 463.71,156.45 497.75,156.50 531.78,154.04 565.82,155.26 565.82,147.70
+531.78,148.23 497.75,147.25 463.71,147.26 429.67,148.21 395.64,148.28 361.60,147.64 327.57,147.72 293.53,147.10 259.49,147.14 225.46,147.24 191.42,147.00 157.38,147.19 123.35,147.24 89.31,147.09 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_9a" ><title>std::Vec 6 cores</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(458.83,384.18)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >std::Vec 6 cores</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb(247, 167, 137)'  d='M467.22,380.28 L509.78,380.28 M89.31,95.49 L123.35,95.21 L157.38,96.76 L191.42,96.89 L225.46,95.18 L259.49,96.56
+		L293.53,94.89 L327.57,95.03 L361.60,95.02 L395.64,96.30 L429.67,95.45 L463.71,96.74 L497.75,95.73 L531.78,95.94
+		L565.82,95.02  '/></g>
+	</g>
+	<g id="gnuplot_plot_10a" ><title>gnuplot_plot_10a</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(247, 167, 137)' fill-opacity = '0.500000' points = '89.31,101.32 123.35,98.78 157.38,105.99 191.42,106.33 225.46,98.73 259.49,104.33 293.53,97.92 327.57,100.20 361.60,100.10 395.64,104.52 429.67,101.44 463.71,106.20 497.75,101.26 531.78,101.92 565.82,98.02 565.82,92.24
+531.78,90.78 497.75,90.91 463.71,89.17 429.67,90.27 395.64,89.55 361.60,90.54 327.57,90.48 293.53,92.08 259.49,90.12 225.46,91.94 191.42,89.33 157.38,89.34 123.35,91.95 89.31,90.44 '/>
+	</g>
+</g>
+	</g>
+<g fill="none" color="white" stroke="rgb(247, 167, 137)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>

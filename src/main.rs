@@ -1,89 +1,4 @@
 use concurrent_vec::ConcVec;
-
-fn base_one() {
-    let base = ConcVec::new(1, 1);
-    let mut vec = base.clone().get_appender();
-    let n = 1024;
-
-    for i in 0..n {
-        vec.push(i);
-    }
-
-    assert_eq!(base.len(), N);
-
-    let mut set = HashSet::new();
-
-    for i in base.take_iter() {
-        set.insert(i);
-    }
-
-    assert_eq!(set.len(), N);
-}
-
-fn base_thirtytwo() {
-    let base = ConcVec::new(1, 32);
-    let mut vec = base.clone().get_appender();
-    let n = 1_000_000;
-
-    for i in 0..n {
-        vec.push(i);
-    }
-
-    let mut set = HashSet::new();
-
-    for i in base.take_iter() {
-        set.insert(i);
-    }
-
-    assert_eq!(set.len(), N);
-
-    // for i in 0..n {
-    //     assert_eq!(vec[i], i);
-    //     assert_eq!(vec.get(i), Some(&i));
-    //     unsafe {
-    //         assert_eq!(vec.get_unchecked(i), &i);
-    //     }
-    // }
-}
-
-struct LageStruct {
-    data: [usize; 128],
-    counter: usize,
-}
-fn multithreading_struct() {
-    let conc_vec = ConcVec::new(1, 32);
-    let n = 10_000_000;
-
-    let n_threads = 16;
-
-    let mut handles = vec![];
-
-    for t in 0..n_threads {
-        let mut conc_vec = conc_vec.clone().get_appender();
-        handles.push(thread::spawn(move || {
-            for i in 0..n {
-                if i % n_threads == t {
-                    conc_vec.push(LageStruct {
-                        data: [i; 128],
-                        counter: i,
-                    });
-                }
-            }
-        }))
-    }
-
-    for h in handles {
-        h.join().unwrap();
-    }
-
-    let mut set = HashSet::new();
-    let len = conc_vec.len();
-    for i in conc_vec.take_iter() {
-        set.insert(i.counter);
-    }
-    assert_eq!(set.len(), len);
-}
-
 use std::time::Instant;
 use std::{collections::HashSet, thread, time::Duration, usize};
 
@@ -91,40 +6,7 @@ const N: usize = 10_000_000;
 
 #[test]
 fn test_mth() {
-    multithreading_size(12, 1024, 10_000);
-}
-
-fn multithreading(n_threads: usize) {
-    let conc_vec = ConcVec::new(1, 1024);
-    //let vec = Arc::new(Aoavec::with_capacity(N));
-    //let vec = Arc::new(Aoavec::new());
-
-    let mut handles = vec![];
-
-    for t in 0..n_threads {
-        let mut vec = conc_vec.clone().get_appender();
-        handles.push(thread::spawn(move || {
-            for i in 0..N {
-                if i % n_threads == t {
-                    vec.push(i);
-                }
-            }
-        }))
-    }
-
-    for h in handles {
-        h.join().unwrap();
-    }
-
-    assert_eq!(conc_vec.len(), N);
-
-    let mut set = HashSet::new();
-
-    for i in conc_vec.take_iter() {
-        set.insert(i);
-    }
-
-    assert_eq!(set.len(), N);
+    multithreading(12, 1024, 10_000);
 }
 
 fn benchmark_vec<F>(f: F, mut inputs: Vec<usize>, num_runs: usize) -> (Vec<f64>, Vec<f64>)
@@ -189,7 +71,7 @@ where
     (values, stds)
 }
 
-fn multithreading_size(n_threads: usize, buf_size: usize, n: usize) {
+fn multithreading(n_threads: usize, buf_size: usize, n: usize) {
     let conc_vec = ConcVec::new(6, buf_size);
     let mut handles = vec![];
 
@@ -224,6 +106,35 @@ fn multithreading_size_just_vec(n_threads: usize, buf_size: usize, n: usize) {
     }
 }
 
+struct LageStruct {
+    data: [usize; 0],
+}
+fn multithreading_struct(n_threads: usize, buf_size: usize, n: usize) {
+    let conc_vec = ConcVec::new(1, buf_size);
+
+    let mut handles = vec![];
+
+    for _ in 0..n_threads {
+        let mut conc_vec = conc_vec.clone().get_appender();
+        handles.push(thread::spawn(move || {
+            for i in 0..n / n_threads {
+                conc_vec.push(LageStruct { data: [i; 0] });
+            }
+        }))
+    }
+
+    for h in handles {
+        h.join().unwrap();
+    }
+
+    // let mut set = HashSet::new();
+    // let len = conc_vec.len();
+    // for i in conc_vec.take_iter() {
+    //     set.insert(i.counter);
+    // }
+    // assert_eq!(set.len(), len);
+}
+
 const COLORS: [&str; 8] = [
     "#3b4cc0", "#688aef", "#99baff", "#c9d8ef", "#edd1c2", "#f7a789", "#e36a53", "#b40426",
 ];
@@ -238,7 +149,7 @@ fn buf_size() {
     const N: usize = 1_000_000;
     const NUM_CORES: usize = 6;
     let num_samples = 15;
-    let num_runs = 50;
+    let num_runs = 20;
     //let mut benchmark_nums = vec![Vec::<f64>::new(); num_samples];
 
     println!("Running Benchmark {} times", num_runs);
@@ -250,16 +161,17 @@ fn buf_size() {
     let plot = fg
         .axes2d()
         .set_title("buf\\_size", &[])
-        .set_legend(Graph(0.9), Graph(0.3), &[], &[])
+        .set_legend(Graph(0.9), Graph(0.5), &[], &[])
         .set_x_label("buf\\_size", &[])
         .set_y_label("inserts per second", &[])
         .set_y_log(Some(10.0))
         .set_x_log(Some(2.0));
 
-    for cores in &[1, 2, 6] {
-        println!("{} cores", cores);
+    println!("concurrentVec");
+    for threads in &[1, 2, 6] {
+        println!("{} threads", threads);
         let (values, stds) = benchmark_vec(
-            |buf_size: usize| multithreading_size(*cores, buf_size, N),
+            |buf_size: usize| multithreading(*threads, buf_size, N),
             (0..num_samples).map(get_buf_size).collect(),
             num_runs,
         );
@@ -271,22 +183,24 @@ fn buf_size() {
             &x,
             &values,
             &[
-                Caption(&format!("concurrentVec {} cores", cores)),
-                Color(COLORS[*cores]),
+                Caption(&format!("concurrentVec {} threads", threads)),
+                Color(COLORS[*threads]),
             ],
         );
         plot.fill_between(
             &x,
             &y_low,
             &y_hi,
-            &[FillRegion(FillRegionType::Below), Color(COLORS[*cores])],
+            &[FillRegion(FillRegionType::Below), Color(COLORS[*threads])],
         );
         //plot.y_error_lines(&x, &values, &stds, &[Caption(&cores.to_string())]);
     }
 
-    for (i, cores) in (&[1, 6]).iter().enumerate() {
+    println!("std::vec");
+    for (i, threads) in (&[1, 6]).iter().enumerate() {
+        println!("{} threads", threads);
         let (values, stds) = benchmark_vec(
-            |buf_size: usize| multithreading_size_just_vec(*cores, buf_size, N),
+            |buf_size: usize| multithreading_size_just_vec(*threads, buf_size, N),
             (0..num_samples).map(get_buf_size).collect(),
             num_runs,
         );
@@ -300,7 +214,7 @@ fn buf_size() {
             &x,
             &values,
             &[
-                Caption(&format!("std::Vec {} cores", cores)),
+                Caption(&format!("std::Vec {} threads", threads)),
                 Color(COLORS[3 + i * 2]),
             ],
         );
@@ -309,6 +223,39 @@ fn buf_size() {
             &y_low,
             &y_hi,
             &[FillRegion(FillRegionType::Below), Color(COLORS[3 + i * 2])],
+        );
+    }
+
+    println!("concurrentVec_large");
+    for (i, threads) in (&[1, 2, 6]).iter().enumerate() {
+        println!("{} threads", threads);
+        let (values, stds) = benchmark_vec(
+            |buf_size: usize| multithreading_struct(*threads, buf_size, N),
+            (0..num_samples).map(get_buf_size).collect(),
+            num_runs,
+        );
+
+        let y_low: Vec<_> = values.iter().zip(stds.iter()).map(|(v, s)| v - s).collect();
+        let y_hi: Vec<_> = values.iter().zip(stds.iter()).map(|(v, s)| v + s).collect();
+
+        //let _: Vec<_> = y_low.iter().zip(&y_hi).map(|(l, h)| println!("{} {}", l, h)).collect();
+        //plot.y_error_lines(&x, &values, &stds, &[Caption("Just Vec 6 cores"), ]);
+        plot.lines(
+            &x,
+            &values,
+            &[
+                Caption(&format!("concurrentVec\\_struct {} threads", threads)),
+                Color(COLORS[[0, 7, 4][i]]),
+            ],
+        );
+        plot.fill_between(
+            &x,
+            &y_low,
+            &y_hi,
+            &[
+                FillRegion(FillRegionType::Below),
+                Color(COLORS[[0, 7, 4][i]]),
+            ],
         );
     }
 
@@ -323,19 +270,17 @@ fn main() {
     let now = Instant::now();
     if args.len() >= 2 {
         match args[1].as_str() {
-            "mTh" => multithreading(12),
-            "BaseOne" => base_one(),
-            "BaseThrityTwo" => base_thirtytwo(),
+            "mTh" => multithreading(12, 1024, N),
             "Run10Min" => {
                 let now = Instant::now();
                 while now.elapsed() < Duration::from_secs(600) {
                     for i in 1..=12 {
-                        multithreading(i);
+                        multithreading(i, 1024, N);
                     }
                 }
             }
             "Benchmark_size" => buf_size(),
-            "Large_struct" => multithreading_struct(),
+            "Large_struct" => multithreading_struct(12, 32, 10_000),
             _ => println!("This is not the answer."),
         }
     }
